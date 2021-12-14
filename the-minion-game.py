@@ -4,7 +4,7 @@ string_to_play = "BANANA"
 string_to_count = string_to_play.casefold()
 
 def possible_combinations(string_: str):
-    return math.factorial(string_)
+    return math.factorial(len(string_))
 
 vocals = ["a", "e", "i", "o", "u"]
 
@@ -16,4 +16,6 @@ stuart_points = 0
 
 for vocal in vocals:
     n_vocals += string_to_count.count(vocal)
-n_consona
+n_consonants = len(string_to_count) - n_vocals
+
+kevin_points = n_vocals
