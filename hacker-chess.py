@@ -36,7 +36,13 @@ def verticalRooks(n, r1, r2):
     for position in positions:
         if abs(position[0] - position[1]) == 1:
             rooks_together += 1
-        
+
+    # Player 2 wins if there are odd starting possible moves. Else, player 1 wins.
+    possible_starting_moves = n - rooks_together
+    if possible_starting_moves % 2 == 0:
+        return "Player 1 wins"
+    else:
+        return "Player 2 wins"
 
 
 
@@ -82,4 +88,4 @@ if __name__ == '__main__':
             result = verticalRooks(n, r1, r2)
 
 
-            # fptr.write(result + '\n')
+            fptr.write(result + '\n')
