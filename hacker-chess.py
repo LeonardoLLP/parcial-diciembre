@@ -51,7 +51,7 @@ if __name__ == '__main__':
 
         t = int(input().strip())
 
-        fptr.write("Number of games: {} \n".format(t))
+        fptr.write("Number of games: {}\n".format(t))
 
         for t_itr in range(t):
 
