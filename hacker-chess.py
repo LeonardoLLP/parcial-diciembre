@@ -50,9 +50,8 @@ if __name__ == '__main__':
         fptr = open("hacker-chess-results", 'w')
 
         t = int(input().strip())
-        print(t)
 
-
+        fptr.write("Number of games: {} \n".format(t))
 
         for t_itr in range(t):
 
