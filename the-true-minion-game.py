@@ -8,18 +8,16 @@ def possible_combinations(number_of_letters):
 
 vocals = ["a", "e", "i", "o", "u"]
 
-n_vocals = 0
-n_consonants = 0
-
 kevin_points = 0
 stuart_points = 0
 
-for vocal in vocals:
-    kevin_points += string_to_count.count(vocal) * possible_combinations(len(string_to_count) - 1)
+for letter_index in range(len(string_to_count)):
+    if string_to_count[letter_index] in vocals:
+        kevin_points += len(string_to_count[letter_index:])
+    else:
+        stuart_points += len(string_to_count[letter_index:])
 
-for letter in string_to_count:
-    if letter not in vocals:
-        stuart_points += possible_combinations(len(string_to_count) - 1)
+
 
 
 if kevin_points > stuart_points:

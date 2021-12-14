@@ -22,9 +22,6 @@ import sys
 
 #
 
-def make_checks():
-    pass
-
 def verticalRooks(n, r1, r2):
     # If you think it for a moment, the winner is decided just by the dimensions of the board AND how many rooks are stuck together when it starts the game
     # The best option is to always stick to the rook
@@ -32,7 +29,7 @@ def verticalRooks(n, r1, r2):
     pass
     rooks_together = 0
     for i in range(n):
-        positions.append(r1[i], r2[i])
+        positions.append((r1[i], r2[i]))
     for position in positions:
         if abs(position[0] - position[1]) == 1:
             rooks_together += 1
@@ -49,8 +46,8 @@ def verticalRooks(n, r1, r2):
 
 
 if __name__ == '__main__':
-
-    with open("hacker-chess-results", 'w') as fptr:
+    try:
+        fptr = open("hacker-chess-results", 'w')
 
         t = int(input().strip())
         print(t)
@@ -84,8 +81,13 @@ if __name__ == '__main__':
                 r2.append(r2_item)
 
 
-
             result = verticalRooks(n, r1, r2)
 
+            result += " game {}".format(t_itr + 1)
+
+            print(result)
 
             fptr.write(result + '\n')
+
+    finally:
+        fptr.close()
